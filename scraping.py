@@ -191,6 +191,7 @@ def hemi_pics():
     results=hemi_soup.find_all('div',class_='item')
     result=results[0]
     i=3
+    hemi_info=[]
     print("entering for loop")
     for result in results:
         hemi_desc=result.find('h3').get_text()
@@ -201,18 +202,19 @@ def hemi_pics():
         img_url_rel=mars_soup.find_all('a')[3].get('href')
         #print(img_url_rel)
         img_url = f'https://marshemisphers.com/{img_url_rel}'
-        hemispheres[i-3]={img_url,hemi_desc}
-        #hemispheres[1-3]=hemi_desc
         
+        hemispheres={'img_url':img_url,'title':hemi_desc}
+        #hemispheres[1-3]=hemi_desc
+        hemi_info.append(hemispheres)
         #hemispheres['img_url'].append(img_url)
         #hemispheres['title'].append(hemi_desc)
         
         browser.back()
         i=i+1
         #print("hemispheres in app")
-    print(hemispheres)
+    print(hemi_info)
     #print("this one's got a hemi!") 
-    return hemispheres    
+    return hemi_info    
 
 # hemispheres = [
 #    {
