@@ -26,7 +26,7 @@ def scrape_all():
 
     # Run all scraping functions and store results in a dictionary
     #print("starting data funtion calls")
-    time.sleep(2)
+    #time.sleep(2)
     data = {"news_title": news_title,
         "news_paragraph": news_paragraph,
         "featured_image": featured_image(browser),
@@ -36,7 +36,7 @@ def scrape_all():
         
     }
     #print("finished data funtion calls")
-    time.sleep(2)
+    #time.sleep(2)
     #print(data)
     #print("starting nap")
     #time.sleep(10)
@@ -54,8 +54,8 @@ def mars_news(browser):
     # Visit the mars nasa news site
     url = 'https://data-class-mars.s3.amazonaws.com/Mars/index.html'
     browser.visit(url)
-    print("visting new site")
-    time.sleep(2)
+    #print("visting new site")
+    #time.sleep(2)
     # Optional delay for loading the page
     browser.is_element_present_by_css('div.list_text', wait_time=1)
 
@@ -111,7 +111,7 @@ def mars_facts():
     try:
         # Use 'read_html' to scrape the facts table into a dataframe
         df = pd.read_html('https://data-class-mars-facts.s3.amazonaws.com/Mars_Facts/index.html')[0]
-   
+        #df=pd.read_html('http://space-facts.com/mars/')[0]
     except BaseException:
         print("found NONE facts")
         return None
@@ -180,7 +180,9 @@ def hemi_pics():
         'img_url':[],
         'title':[]
         }]*4
-
+    print('b4 for loop hemispheres =')
+    print(hemispheres)    
+    time.sleep(3)
     # 3. Write code to retrieve the image urls and titles for each hemisphere.
     html=browser.html
     response = requests.get(url)
@@ -201,7 +203,7 @@ def hemi_pics():
         mars_soup=soup(browser.html,'html.parser')
         img_url_rel=mars_soup.find_all('a')[3].get('href')
         #print(img_url_rel)
-        img_url = f'https://marshemisphers.com/{img_url_rel}'
+        img_url = f'https://marshemispheres.com/{img_url_rel}'
         
         hemispheres={'img_url':img_url,'title':hemi_desc}
         #hemispheres[1-3]=hemi_desc
