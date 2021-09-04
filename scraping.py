@@ -9,13 +9,13 @@ import requests
 
 
 #print("here is the start")
-executable_path = {'executable_path': ChromeDriverManager().install()}
-browser = Browser('chrome', **executable_path, headless=False)
+#executable_path = {'executable_path': ChromeDriverManager().install()}
+#browser = Browser('chrome', **executable_path, headless=False)
 hemispheres = [
     {
         'img_url':"",
         'title':""}]*4
-
+#3
 def scrape_all():
     
     # Initiate headless driver for deployment
@@ -31,7 +31,7 @@ def scrape_all():
         "news_paragraph": news_paragraph,
         "featured_image": featured_image(browser),
         "facts": mars_facts(),
-        "hemispheres": hemi_pics(),
+        "hemispheres": hemi_pics(browser),
         "last_modified": dt.datetime.now()
         
     }
@@ -169,7 +169,7 @@ def mars_facts():
 # # hemi_pics()
 # # print("after the function")
 # # print(hemispheres)
-def hemi_pics():
+def hemi_pics(browser):
     #print("hemi_pics was called")
     # 1. Use browser to visit the URL 
     url = 'https://marshemispheres.com/'
