@@ -1,7 +1,10 @@
 # HW10_Mission2Mars
 
-My code for scraping work in jupyter notebook and my scraping.py files runs and scrapes the locations it is meant to.  My app.py is not running properly in conjunction with the scraping.py file.
+My code for scraping work in jupyter notebook and my scraping.py files runs and scrapes the locations as it is meant to.  
 
-I currently have mixed results with all the data being written to mongo since that occurs in the app.py
+My app.py is now running properly in conjunction with the scraping.py file.
 
-I was able to change some components in the index.html file such as added "muted text" a color change of the text.
+Once the flask app is called by app.py the website with additional Bootstrap components are visible.  The button to begin scraping spans the width of the jumbotron, it has a new color and the background color of the body has been changed to a custom color.
+
+By clicking the "Scrape New Data" button the process begins and scraping.py begins gathering the lastest Mars news (headline and summary paragraph), a featured Mars image, a table of Mars facts and full-resolution pictures of the 4 Mars hemispheres with their names. 
+
